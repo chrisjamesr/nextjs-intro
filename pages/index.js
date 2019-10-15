@@ -11,6 +11,14 @@ function getPosts() {
   ];
 };
 
+const PostLink = ({ post }) => (
+  <li key={post.id}>
+    <Link href="/p/[id]" as={`/p/${post.id}`}>
+      <a>{post.title}</a>
+    </Link>
+  </li>
+);
+
 export default function Blog(){
   return (
     <Layout>
@@ -18,11 +26,7 @@ export default function Blog(){
       <ul>
         {
           getPosts().map(post => (
-            <li key={post.id}>
-              <Link href="/p/[id]" as={`/p/${post.id}`}>
-                <a>{post.title}</a>
-              </Link>
-            </li>
+            <PostLink key={post.id} post={post} />
           ))
         }
       </ul>
