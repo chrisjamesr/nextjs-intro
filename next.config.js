@@ -13,5 +13,7 @@ module.exports = {
     shows.forEach(show=>{
       paths[`/show/${show.id}`] = {page: '/show/[id]', query: {id: show.id} };
     })
+
+    return paths;
   }
 };
